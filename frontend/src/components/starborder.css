@@ -1,0 +1,89 @@
+.star-border-container {
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Moving star border layers */
+.border-gradient-bottom,
+.border-gradient-top {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.8;
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(4px);
+}
+
+/* bottom stars */
+.border-gradient-bottom {
+  bottom: -12px;
+  right: -250%;
+  background: radial-gradient(circle, #d8cd8b, transparent 10%);
+  animation: star-movement-bottom 5s linear infinite alternate;
+}
+
+/* top stars */
+.border-gradient-top {
+  top: -12px;
+  left: -250%;
+  background: radial-gradient(circle, #ffd700, transparent 10%);
+  animation: star-movement-top 5s linear infinite alternate;
+}
+
+/* inner button styling */
+.inner-content {
+  position: relative;
+  border: 2px solid #0a1a3c; /* navy border */
+  background: #eac782; /* yellow base */
+  color: #0a1a3c; /* navy text */
+  font-size: 18px;
+  text-align: center;
+  padding: 14px 36px;
+  border-radius: 20px;
+  font-weight: 700;
+  z-index: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+/* hover animation - invert theme */
+.star-border-container:hover .inner-content {
+  background: #0a1a3c; /* navy background */
+  color: #e1a038; /* yellow text */
+  border-color: #e1a038; /* yellow border */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* hover - black + yellow moving stars */
+.star-border-container:hover .border-gradient-top,
+.star-border-container:hover .border-gradient-bottom {
+  background: radial-gradient(circle, #000, transparent 10%);
+  opacity: 1;
+}
+
+/* Star movement keyframes */
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0.5;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0.5;
+  }
+}
